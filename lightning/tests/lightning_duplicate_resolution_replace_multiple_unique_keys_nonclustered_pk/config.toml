@@ -1,0 +1,19 @@
+[lightning]
+task-info-schema-name = 'lightning_task_info'
+
+[tikv-importer]
+backend = 'local'
+add-index-by-sql = true
+
+[conflict]
+strategy = "replace"
+
+[checkpoint]
+enable = true
+
+[mydumper]
+batch-size = 1
+# ensure each file is its own engine to facilitate cross-engine detection.
+
+[mydumper.csv]
+header = true
